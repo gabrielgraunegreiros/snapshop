@@ -1,0 +1,8 @@
+<div class="card bg-white">
+  <products-categories-list
+    [categories]="categories"
+    [currentCategory]="categoryCurrentListing"
+    (onCategoryClicked)="onCategoryClicked($event)"
+    ></products-categories-list>
+  <products-products-list></products-products-list>
+</div>

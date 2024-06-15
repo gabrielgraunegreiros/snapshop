@@ -1,0 +1,9 @@
+<div class="tab">
+  <button
+    class="tablinks"
+    *ngFor="let item of categories; let i = index"
+    [class.active]="i == currentCategory"
+    (click)="onCategoryClick(i)">
+    {{ item.nombre }}
+  </button>
+</div>

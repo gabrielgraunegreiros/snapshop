@@ -1,0 +1,21 @@
+.header-div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: #3143de;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.36);
+}
+.logo {
+  align-self: center;
+  height: 45px;
+  filter: brightness(0%) invert(100%);
+}
+.shopping-cart {
+  background-color: transparent;
+  border: none;
+  margin-left: auto;
+}
+.cart-icon {
+  height: 32px;
+}
