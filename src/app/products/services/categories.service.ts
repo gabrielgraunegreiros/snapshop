@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Category } from '../interfaces/category.interface';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +13,8 @@ export class CategoriesService {
 
   constructor(private http: HttpClient) { }
 
-  getCategories(): void {
-    this.http.get<Category[]>(`${this.serviceUrl}/categorias.json`)
-      .subscribe( resp => {
-        this.categoriesList = resp;
-        console.log(this.categoriesList);
-      });
+  getCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(`${this.serviceUrl}/categorias.json`);
   }
 
   onCategoryChanged(index: number): void {

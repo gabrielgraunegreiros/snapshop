@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { CategoriesService } from '../services/categories.service';
+import { ProductsListService } from '../services/products-list.service';
+import { Product } from '../interfaces/product.interface';
+import { Category } from '../interfaces/category.interface';
 
 @Component({
   selector: 'products-home-page',
@@ -7,21 +10,29 @@ import { CategoriesService } from '../services/categories.service';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
-  constructor(private categoriesService: CategoriesService) {}
+  public productsFiltered: Product[] = [];
+  public categoriesList: Category[] = [];
+  constructor(
+    private _categoriesService: CategoriesService,
+    private _productsListService: ProductsListService
+  ) {}
 
   ngOnInit() {
-    this.categoriesService.getCategories();
-  }
-
-  get categories() {
-    return this.categoriesService.categoriesList;
+    this._categoriesService.getCategories().subscribe( categories => {
+      this.categoriesList = categories;
+    });
+    this._productsListService.getProducts().subscribe( products => {
+      this.productsFiltered = products;
+      this.productsFiltered = this._productsListService.getProductsByCategory(0);
+    });
   }
 
   get categoryCurrentListing(): number {
-    return this.categoriesService.categoryCurrentListing;
+    return this._categoriesService.categoryCurrentListing;
   }
 
   onCategoryClicked(index: number): void {
-    this.categoriesService.onCategoryChanged(index);
+    this._categoriesService.onCategoryChanged(index);
+    this.productsFiltered = this._productsListService.getProductsByCategory(index);
   }
 }
