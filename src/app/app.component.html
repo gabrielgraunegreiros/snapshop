@@ -1,2 +1,12 @@
-<header-shopping-cart></header-shopping-cart>
-<products-home-page></products-home-page>
+<div class="maing-page">
+  <div class="body-content">
+    <header-main-header (onCartClicked)="showShoppingCart($event)"></header-main-header>
+    <products-home-page (onCartUpdated)="receiveCart($event)"></products-home-page>
+  </div>
+  <sidebar-sidebar-page
+    class="sidebar"
+    [ngClass]="{'active': isSideBarVisible}"
+    [itemList]="cartItemList"
+    (closeClicked)="showShoppingCart($event)">
+  </sidebar-sidebar-page>
+</div>

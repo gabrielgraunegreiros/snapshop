@@ -1,0 +1,12 @@
+<div class="item-container">
+  <div class="item-container-first-row">
+    <img class="product-image" [src]="item?.imagen" alt="product-image">
+    <div class="item-info-container">
+      <p class="item-name">{{item?.nombre}}</p>
+      <p class="item-price">Precio: S/.{{item?.precio?.toFixed(2)}}</p>
+      <p class="item-category">Categoría: {{item?.categoria}}</p>
+    </div>
+  </div>
+  <img class="delete-icon" src="assets/icons/delete_icon.svg" alt="delete">
+</div>
+<hr>

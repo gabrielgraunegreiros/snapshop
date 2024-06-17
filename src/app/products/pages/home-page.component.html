@@ -1,8 +1,8 @@
-<div class="card bg-white">
+<div class="card">
   <products-categories-list
     [categories]="categoriesList"
     [currentCategory]="categoryCurrentListing"
     (onCategoryClicked)="onCategoryClicked($event)"
     ></products-categories-list>
-  <products-products-list [productListReceived]="productsFiltered"></products-products-list>
+  <products-products-list [productListReceived]="productsFiltered" (emittProduct)="onProductReceived($event)"></products-products-list>
 </div>

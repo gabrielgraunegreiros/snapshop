@@ -2,7 +2,7 @@
   background-color: transparent;
   border: none;
   margin-right: 2rem;
-  padding: 0 1rem;
+  padding: 0 1rem .5rem;
 }
 
 .tab button.active {
@@ -10,5 +10,5 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 3px solid #3143de;
+  border-bottom: 3.5px solid #3143de;
 }

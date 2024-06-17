@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CategoriesService } from '../services/categories.service';
 import { ProductsListService } from '../services/products-list.service';
 import { Product } from '../interfaces/product.interface';
 import { Category } from '../interfaces/category.interface';
+import { ShoppinCartService } from '../../header/services/shoppin-cart.service';
 
 @Component({
   selector: 'products-home-page',
@@ -14,7 +15,8 @@ export class HomePageComponent {
   public categoriesList: Category[] = [];
   constructor(
     private _categoriesService: CategoriesService,
-    private _productsListService: ProductsListService
+    private _productsListService: ProductsListService,
+    private _shoppingCartService: ShoppinCartService
   ) {}
 
   ngOnInit() {
@@ -34,5 +36,17 @@ export class HomePageComponent {
   onCategoryClicked(index: number): void {
     this._categoriesService.onCategoryChanged(index);
     this.productsFiltered = this._productsListService.getProductsByCategory(index);
+  }
+
+  onProductReceived(newProduct: Product): void {
+    this._shoppingCartService.onItemAdded(newProduct);
+    this.emitCart();
+  }
+
+  @Output()
+  public onCartUpdated: EventEmitter<Product[]> = new EventEmitter();
+
+  emitCart() {
+    this.onCartUpdated.emit(this._shoppingCartService.cartItems);
   }
 }
