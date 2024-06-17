@@ -10,7 +10,6 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductDetailsModule } from './product-details/product-details.module';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
-    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

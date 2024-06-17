@@ -1,0 +1,43 @@
+.main-page {
+    margin: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.product-image {
+    height: 40%;
+    width: 50%;
+    background-color: white;
+    object-fit: cover;
+}
+
+.product-info-section {
+    margin-left: 2rem;
+    width: 50%;
+}
+
+.product-info {
+    background-color: white;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.product-name {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.product-id {
+    margin-top: -1rem;
+    color: gray;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+}
+
+.product-rating {
+    justify-content: start;
+}
+
+.product-rating-icon {
+    height: 1rem;
+}

@@ -8,7 +8,7 @@ import { Product } from '../../../products/interfaces/product.interface';
 })
 export class SidebarItemComponent {
   @Input()
-  public item: Product | null= null;
+  public item?: Product;
 
   // {
   //   categoria: 'Tecnología',
@@ -17,13 +17,11 @@ export class SidebarItemComponent {
   //   nombre: 'Dualsense PS5',
   //   precio: 1500
   // };
-  @Input()
-  public index: number = 0;
 
   @Output()
-  public emitItemToDelete: EventEmitter<number> = new EventEmitter();
+  public emitItemToDelete: EventEmitter<string> = new EventEmitter();
 
-  onDeleteClicked(itemIndexToDelete: number): void {
-    this.emitItemToDelete.emit(itemIndexToDelete);
+  onDeleteClicked(itemIdToDelete: string): void {
+    this.emitItemToDelete.emit(itemIdToDelete);
   }
 }

@@ -1,6 +1,6 @@
 <div class="products-container">
   <div class="products-item" *ngFor="let item of productListReceived">
-    <div [routerLink]="['/product-details']" class="products-item-content">
+    <div [routerLink]="['/product-details/by', item.id]" class="products-item-content">
       <img class="product-image" [src]="item.imagen" alt="imagen de producto">
       <p class="product-description">{{item.nombre}}</p>
       <p class="product-price">S/. {{item.precio.toFixed(2)}}</p>

@@ -5,10 +5,8 @@
   </div>
   <div class="default-div" *ngIf="itemList.length == 0">Aún no has agregado nada a tu carrito</div>
   <sidebar-sidebar-item
-    *ngFor="let item of itemList;
-      let i = index"
+    *ngFor="let item of itemList"
     [item]="item"
-    [index]="i"
     (emitItemToDelete)="deleteItem($event)"></sidebar-sidebar-item>
   <div class="total">Total: S/.{{getTotalPrice().toFixed(2)}}</div>
   <hr *ngIf="itemList.length != 0">

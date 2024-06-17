@@ -1,1 +1,15 @@
-<p>details-home works!</p>
+<div class="main-page">
+    <img class="product-image" [src]="productoADetallar?.imagen" alt="product-image">
+    <section class="product-info-section">
+        <div class="product-info">
+            <p class="product-name">{{productoADetallar?.nombre}}</p>
+            <p class="product-id">{{productoADetallar?.id}}</p>
+            <p>
+                Calificación: 
+                <span class="product-rating">
+                    <img *ngFor="let star of [].constructor(productoADetallar?.calificacion)" class="product-rating-icon" src="assets/icons/star.png" alt="calificacion">
+                </span>
+            </p>
+        </div>
+    </section>
+</div>

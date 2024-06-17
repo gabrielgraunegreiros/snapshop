@@ -24,8 +24,8 @@ export class SidebarPageComponent {
   @Output()
   public listUpdated: EventEmitter<Product[]> = new EventEmitter();
 
-  deleteItem(itemIndexToDelete: number): void {
-    this.itemList = this.itemList.filter((_product, index) => index !== itemIndexToDelete);
+  deleteItem(itemIdToDelete: string): void {
+    this.itemList = this.itemList.filter(product => product.id !== itemIdToDelete);
     this.listUpdated.emit(this.itemList);
   }
 }
