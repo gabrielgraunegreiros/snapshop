@@ -37,6 +37,10 @@
   object-fit: scale-down;
 }
 
+.product-description {
+  margin-top: 1rem;
+}
+
 .product-price {
   font-weight: 600;
 }

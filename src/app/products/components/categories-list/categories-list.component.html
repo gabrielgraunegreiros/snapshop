@@ -1,7 +1,9 @@
 <div class="tab">
   <button
     class="tablinks"
-    *ngFor="let item of categories; let i = index"
+    *ngFor="let item of categories;
+      let i = index;
+      let isLast = last"
     [class.active]="i == currentCategory"
     (click)="onCategoryClick(i)">
     {{ item.nombre }}

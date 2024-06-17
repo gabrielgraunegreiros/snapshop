@@ -19,9 +19,18 @@ export class AppComponent {
 
   showShoppingCart(show: boolean): void {
     this.isSideBarVisible = show;
+    this.toggleBodyScroll(show);
   }
 
   updateList(listUpdated: Product[]) {
     this.cartItemList = listUpdated;
+  }
+
+  toggleBodyScroll(isVisible: boolean) {
+    if (isVisible) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
   }
 }

@@ -1,5 +1,6 @@
 <div class="maing-page">
-  <div class="body-content">
+  <div class="overlay" *ngIf="isSideBarVisible" (click)="showShoppingCart(false)"></div>
+  <div class="body-content" [ngClass]="{'hiden': isSideBarVisible}">
     <header-main-header (onCartClicked)="showShoppingCart($event)" [cartUpdated]="cartItemList"></header-main-header>
     <router-outlet></router-outlet>
     <!-- <products-home-page (onCartUpdated)="receiveCart($event)"></products-home-page> -->
