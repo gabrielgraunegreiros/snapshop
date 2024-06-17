@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChange, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'header-counter',
@@ -8,4 +8,13 @@ import { Component, Input } from '@angular/core';
 export class CounterComponent {
   @Input()
   public shoppingCartLength: number = 0;
+
+  @Input()
+  public shoppingCartLengthUpdated: number = 0;
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['shoppingCartLengthUpdated']) {
+      this.shoppingCartLength = this.shoppingCartLengthUpdated;
+    }
+  }
 }

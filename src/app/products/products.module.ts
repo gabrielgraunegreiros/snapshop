@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './pages/home-page.component';
 import { CategoriesListComponent } from './components/categories-list/categories-list.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,7 +14,8 @@ import { ProductsListComponent } from './components/products-list/products-list.
     ProductsListComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     HomePageComponent

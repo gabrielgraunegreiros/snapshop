@@ -11,6 +11,9 @@ export class ShoppinCartService {
   onItemAdded(newProduct: Product): void {
     this.cartItems.push(newProduct);
     console.log(this.cartItems);
+  }
 
+  onItemDeleted(itemsUpdated: Product[]): void {
+    this.cartItems = itemsUpdated;
   }
 }

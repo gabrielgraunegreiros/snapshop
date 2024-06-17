@@ -1,12 +1,14 @@
 <div class="maing-page">
   <div class="body-content">
-    <header-main-header (onCartClicked)="showShoppingCart($event)"></header-main-header>
-    <products-home-page (onCartUpdated)="receiveCart($event)"></products-home-page>
+    <header-main-header (onCartClicked)="showShoppingCart($event)" [cartUpdated]="cartItemList"></header-main-header>
+    <router-outlet></router-outlet>
+    <!-- <products-home-page (onCartUpdated)="receiveCart($event)"></products-home-page> -->
   </div>
   <sidebar-sidebar-page
     class="sidebar"
     [ngClass]="{'active': isSideBarVisible}"
     [itemList]="cartItemList"
-    (closeClicked)="showShoppingCart($event)">
+    (closeClicked)="showShoppingCart($event)"
+    (listUpdated)="updateList($event)">
   </sidebar-sidebar-page>
 </div>

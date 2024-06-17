@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../../products/interfaces/product.interface';
 
 @Component({
@@ -17,4 +17,13 @@ export class SidebarItemComponent {
   //   nombre: 'Dualsense PS5',
   //   precio: 1500
   // };
+  @Input()
+  public index: number = 0;
+
+  @Output()
+  public emitItemToDelete: EventEmitter<number> = new EventEmitter();
+
+  onDeleteClicked(itemIndexToDelete: number): void {
+    this.emitItemToDelete.emit(itemIndexToDelete);
+  }
 }

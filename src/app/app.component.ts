@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Product } from './products/interfaces/product.interface';
 
 @Component({
@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'snapshop';
 
   public cartItemList: Product[] = [];
+  public cartItemListUpdated: number = 0;
   public isSideBarVisible: boolean = false;
 
   receiveCart(itemsList: Product[]) {
@@ -18,6 +19,9 @@ export class AppComponent {
 
   showShoppingCart(show: boolean): void {
     this.isSideBarVisible = show;
-    console.log(this.isSideBarVisible);
+  }
+
+  updateList(listUpdated: Product[]) {
+    this.cartItemList = listUpdated;
   }
 }

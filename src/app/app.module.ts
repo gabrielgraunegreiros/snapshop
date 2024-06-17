@@ -6,22 +6,27 @@ import { HeaderModule } from './header/header.module';
 import { ProductsModule } from './products/products.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ProductDetailsModule } from './product-details/product-details.module';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HeaderModule,
     ProductsModule,
-    SidebarModule
+    SidebarModule,
+    ProductDetailsModule,
   ],
   providers: [
-    provideHttpClient(withInterceptorsFromDi())
+    provideHttpClient(withInterceptorsFromDi()),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

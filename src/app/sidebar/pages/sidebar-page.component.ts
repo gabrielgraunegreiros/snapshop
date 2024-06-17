@@ -20,4 +20,12 @@ export class SidebarPageComponent {
   getTotalPrice(): number {
     return this.itemList.reduce((total, producto) => total + producto.precio, 0);
   }
+
+  @Output()
+  public listUpdated: EventEmitter<Product[]> = new EventEmitter();
+
+  deleteItem(itemIndexToDelete: number): void {
+    this.itemList = this.itemList.filter((_product, index) => index !== itemIndexToDelete);
+    this.listUpdated.emit(this.itemList);
+  }
 }

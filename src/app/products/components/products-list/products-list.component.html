@@ -1,8 +1,10 @@
 <div class="products-container">
   <div class="products-item" *ngFor="let item of productListReceived">
-    <img class="product-image" [src]="item.imagen" alt="imagen de producto">
-    <p class="product-description">{{item.nombre}}</p>
-    <p class="product-price">S/. {{item.precio.toFixed(2)}}</p>
+    <div [routerLink]="['/product-details']" class="products-item-content">
+      <img class="product-image" [src]="item.imagen" alt="imagen de producto">
+      <p class="product-description">{{item.nombre}}</p>
+      <p class="product-price">S/. {{item.precio.toFixed(2)}}</p>
+    </div>
     <button type="submit" class="product-add" (click)="onButtonClicked(item)">AGREGAR AL CARRITO</button>
   </div>
 </div>

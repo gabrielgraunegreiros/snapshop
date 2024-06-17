@@ -7,10 +7,12 @@ import { Product } from '../../../products/interfaces/product.interface';
   styleUrl: './shopping-cart.component.css'
 })
 export class ShoppingCartComponent {
+  private showSidebar: boolean = false;
   @Output()
   public onIconClicked: EventEmitter<boolean> = new EventEmitter();
 
   onIconClick(): void {
     this.onIconClicked.emit(true);
+    this.showSidebar = !this.showSidebar;
   }
 }

@@ -3,7 +3,12 @@
     <p class="div-title">Carrito de compras</p>
     <img class="close-icon" src="assets/icons/close_icon.svg" alt="close" (click)="closeSidebar()">
   </div>
-  <sidebar-sidebar-item *ngFor="let item of itemList" [item]="item"></sidebar-sidebar-item>
+  <sidebar-sidebar-item
+    *ngFor="let item of itemList;
+      let i = index"
+    [item]="item"
+    [index]="i"
+    (emitItemToDelete)="deleteItem($event)"></sidebar-sidebar-item>
   <div class="total">Total: S/.{{getTotalPrice().toFixed(2)}}</div>
   <hr *ngIf="itemList.length != 0">
   <button *ngIf="itemList.length != 0" class="pay">PAGAR</button>

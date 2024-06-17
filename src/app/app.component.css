@@ -1,6 +1,8 @@
 .main-page {
   display: flex;
   flex-direction: row;
+  /* position: absolute;
+  opacity: .5; */
 }
 
 .sidebar {
@@ -13,11 +15,13 @@
   background-color: white;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   transition: right 0.2s ease-in-out;
-  z-index: 1;
+  z-index: 10;
   justify-content: start;
   overflow: auto;
 }
 
 .sidebar.active {
   right: 0;
+  z-index: 10;
 }
+
