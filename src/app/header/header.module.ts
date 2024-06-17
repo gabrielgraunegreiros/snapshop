@@ -4,7 +4,6 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { MainHeaderComponent } from './pages/main-header.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { RouterModule } from '@angular/router';
-import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 
@@ -17,11 +16,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
   imports: [
     CommonModule,
     RouterModule,
-    MatSidenavModule
   ],
   exports: [
     ShoppingCartComponent,
-    MainHeaderComponent
+    MainHeaderComponent,
+    CounterComponent
   ]
 })
 export class HeaderModule { }

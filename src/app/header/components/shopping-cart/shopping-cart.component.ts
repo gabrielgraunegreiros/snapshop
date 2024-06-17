@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Product } from '../../../products/interfaces/product.interface';
 
 @Component({
   selector: 'header-shopping-cart',
