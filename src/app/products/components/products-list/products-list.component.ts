@@ -6,10 +6,10 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 @Component({
   selector: 'products-products-list',
   templateUrl: './products-list.component.html',
-  styleUrl: './products-list.component.css'
+  styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent {
-  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   @Input()
@@ -30,9 +30,10 @@ export class ProductsListComponent {
   }
 
   openSnackBar() {
-    this._snackBar.open('Cannonball!!', 'Splash', {
+    this._snackBar.open('Producto agregado al carrito', '' , {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
+      duration: 1500,
     });
   }
 }

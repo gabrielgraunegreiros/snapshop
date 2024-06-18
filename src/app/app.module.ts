@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductDetailsModule } from './product-details/product-details.module';
 import { SharedModule } from './shared/shared.module';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SharedModule } from './shared/shared.module';
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
+    provideAnimations(),
   ],
   bootstrap: [AppComponent]
 })
