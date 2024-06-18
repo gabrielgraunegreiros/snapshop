@@ -4,6 +4,7 @@ import { HomePageComponent } from './pages/home-page.component';
 import { CategoriesListComponent } from './components/categories-list/categories-list.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { RouterModule } from '@angular/router';
+import { MainButtonModule } from '../shared/main-button.module';
 
 
 
@@ -15,7 +16,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MainButtonModule
   ],
   exports: [
     HomePageComponent

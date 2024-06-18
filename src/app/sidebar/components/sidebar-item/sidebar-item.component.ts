@@ -19,9 +19,9 @@ export class SidebarItemComponent {
   // };
 
   @Output()
-  public emitItemToDelete: EventEmitter<string> = new EventEmitter();
+  public emitItemToDelete: EventEmitter<boolean> = new EventEmitter();
 
-  onDeleteClicked(itemIdToDelete: string): void {
-    this.emitItemToDelete.emit(itemIdToDelete);
+  onDeleteClicked(): void {
+    this.emitItemToDelete.emit(true);
   }
 }

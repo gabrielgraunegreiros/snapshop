@@ -10,6 +10,8 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductDetailsModule } from './product-details/product-details.module';
+import { MainButtonComponent } from './shared/main-button/main-button.component';
+import { MainButtonModule } from './shared/main-button.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { ProductDetailsModule } from './product-details/product-details.module';
     ProductsModule,
     SidebarModule,
     ProductDetailsModule,
+    MainButtonModule
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),

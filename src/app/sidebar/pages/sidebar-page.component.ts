@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../products/interfaces/product.interface';
+import { ShoppingCartService } from '../../shared/services/shopping-cart.service';
 
 @Component({
   selector: 'sidebar-sidebar-page',
@@ -7,7 +8,6 @@ import { Product } from '../../products/interfaces/product.interface';
   styleUrl: './sidebar-page.component.css'
 })
 export class SidebarPageComponent {
-  @Input()
   public itemList: Product[] = [];
 
   @Output()
@@ -17,15 +17,21 @@ export class SidebarPageComponent {
     this.closeClicked.emit(false);
   }
 
+  constructor(private _shoppingCartService: ShoppingCartService) {}
+
+  ngOnInit() {
+    this._shoppingCartService.cartItems.subscribe(productList => {
+      this.itemList = productList
+    });
+  }
+
   getTotalPrice(): number {
     return this.itemList.reduce((total, producto) => total + producto.precio, 0);
   }
 
-  @Output()
-  public listUpdated: EventEmitter<Product[]> = new EventEmitter();
-
-  deleteItem(itemIdToDelete: string): void {
-    this.itemList = this.itemList.filter(product => product.id !== itemIdToDelete);
-    this.listUpdated.emit(this.itemList);
+  deleteItem(deleteItem: boolean, indexOfProduct: number): void {
+    if(deleteItem) {
+      this._shoppingCartService.removeFromCart(indexOfProduct);
+    }
   }
 }

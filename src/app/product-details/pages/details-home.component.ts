@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductDetailsService } from '../services/product-details.service';
 import { switchMap } from 'rxjs';
 import { Product } from '../../products/interfaces/product.interface';
+import { ShoppingCartService } from '../../shared/services/shopping-cart.service';
 
 @Component({
   selector: 'product-details-home',
@@ -15,6 +16,7 @@ export class DetailsHomeComponent implements OnInit{
     private _activatedRoute: ActivatedRoute,
     private router: Router,
     private _productDetailsService: ProductDetailsService,
+    private _shoppingCartService: ShoppingCartService
   ) {}
 
   ngOnInit(): void {
@@ -26,5 +28,14 @@ export class DetailsHomeComponent implements OnInit{
       }
       return this.productoADetallar = producto;
     });
+  }
+
+  emitProduct = (producto: Product) => {
+    this._shoppingCartService.addToCart(producto);
+    return producto;
+  }
+
+  getEmitProductFunction(producto: Product) {
+    return () => this.emitProduct(producto);
   }
 }

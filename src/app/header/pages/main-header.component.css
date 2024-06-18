@@ -16,4 +16,5 @@
 .shopping-cart {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }

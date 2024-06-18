@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SidebarPageComponent } from './pages/sidebar-page.component';
 import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.component';
 import { RouterModule } from '@angular/router';
+import { MainButtonModule } from '../shared/main-button.module';
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MainButtonModule
   ],
   exports: [
     SidebarPageComponent,

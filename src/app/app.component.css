@@ -3,10 +3,6 @@
   flex-direction: row;
 }
 
-body.no-scroll {
-  overflow: hidden;
-}
-
 .overlay {
   position: fixed;
   top: 0;

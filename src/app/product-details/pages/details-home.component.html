@@ -4,12 +4,18 @@
         <div class="product-info">
             <p class="product-name">{{productoADetallar?.nombre}}</p>
             <p class="product-id">{{productoADetallar?.id}}</p>
-            <p>
-                Calificación: 
-                <span class="product-rating">
-                    <img *ngFor="let star of [].constructor(productoADetallar?.calificacion)" class="product-rating-icon" src="assets/icons/star.png" alt="calificacion">
-                </span>
-            </p>
+            <div class="product-rating">
+              <p class="product-rating-text">Calificación:</p>
+              <img *ngFor="let star of [].constructor(productoADetallar?.calificacion)" class="product-rating-icon" src="assets/icons/star.png" alt="calificacion">
+            </div>
+            <p class="product-description">{{productoADetallar?.descripcion}}</p>
+            <div class="product-price-info">
+              <p class="product-price-text">Precio</p>
+              <p class="product-price-number">S/. {{productoADetallar?.precio?.toFixed(2)}}</p>
+            </div>
+            <shared-main-button
+              [texto]="'AGREGAR AL CARRITO'"
+              [action]="getEmitProductFunction(productoADetallar!)"></shared-main-button>
         </div>
     </section>
 </div>

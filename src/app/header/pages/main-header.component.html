@@ -2,8 +2,8 @@
   <a [routerLink]="['/home']">
     <img src="assets/images/logo.svg" alt="logo" class="logo">
   </a>
-  <div class="shopping-cart">
-    <header-shopping-cart (onIconClicked)="onCartClick()"></header-shopping-cart>
-    <header-counter [shoppingCartLength]="cartItemsLength" [shoppingCartLengthUpdated]="cartItemsUpdatedLength"></header-counter>
+  <div class="shopping-cart" (click)="onCartClick()">
+    <header-shopping-cart></header-shopping-cart>
+    <header-counter></header-counter>
   </div>
 </div>

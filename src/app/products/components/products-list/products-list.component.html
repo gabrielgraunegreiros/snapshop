@@ -5,6 +5,8 @@
       <p class="product-description">{{item.nombre}}</p>
       <p class="product-price">S/. {{item.precio.toFixed(2)}}</p>
     </div>
-    <button type="submit" class="product-add" (click)="onButtonClicked(item)">AGREGAR AL CARRITO</button>
+    <shared-main-button
+      [texto]="'AGREGAR AL CARRITO'"
+      [action]="getEmitProductFunction(item)"></shared-main-button>
   </div>
 </div>

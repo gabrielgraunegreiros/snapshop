@@ -1,4 +1,5 @@
 import { Component, Input, SimpleChange, SimpleChanges } from '@angular/core';
+import { ShoppingCartService } from '../../../shared/services/shopping-cart.service';
 
 @Component({
   selector: 'header-counter',
@@ -6,15 +7,11 @@ import { Component, Input, SimpleChange, SimpleChanges } from '@angular/core';
   styleUrl: './counter.component.css'
 })
 export class CounterComponent {
-  @Input()
   public shoppingCartLength: number = 0;
 
-  @Input()
-  public shoppingCartLengthUpdated: number = 0;
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['shoppingCartLengthUpdated']) {
-      this.shoppingCartLength = this.shoppingCartLengthUpdated;
-    }
+  constructor(private _shoppingCartService: ShoppingCartService) {
+    this._shoppingCartService.cartItems.subscribe(productList => {
+      this.shoppingCartLength = productList.length;
+    });
   }
 }

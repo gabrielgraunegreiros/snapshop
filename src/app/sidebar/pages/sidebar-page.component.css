@@ -40,10 +40,5 @@
 }
 
 .pay {
-  border: none;
-  background: linear-gradient(45deg,rgb(50,67,222) 0%,rgb(119, 107, 255) 100%);
-  color: white;
-  padding: 8px 0;
-  border-radius: .5rem;
-  width: 100%;
+  padding-bottom: 1rem;
 }
