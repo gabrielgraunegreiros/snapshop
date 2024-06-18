@@ -4,7 +4,8 @@ import { HomePageComponent } from './pages/home-page.component';
 import { CategoriesListComponent } from './components/categories-list/categories-list.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { RouterModule } from '@angular/router';
-import { MainButtonModule } from '../shared/main-button.module';
+import { SharedModule } from '../shared/shared.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -17,7 +18,8 @@ import { MainButtonModule } from '../shared/main-button.module';
   imports: [
     CommonModule,
     RouterModule,
-    MainButtonModule
+    SharedModule,
+    MatSnackBarModule
   ],
   exports: [
     HomePageComponent

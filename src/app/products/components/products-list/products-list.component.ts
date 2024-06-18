@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { ShoppingCartService } from '../../../shared/services/shopping-cart.service';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'products-products-list',
@@ -8,16 +9,16 @@ import { ShoppingCartService } from '../../../shared/services/shopping-cart.serv
   styleUrl: './products-list.component.css'
 })
 export class ProductsListComponent {
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   @Input()
   public productListReceived: Product[] = [];
-  @Output()
-  public emittProduct: EventEmitter<Product> = new EventEmitter();
 
-  onButtonClicked(productSelected: Product): void {
-    this.emittProduct.emit(productSelected);
-  }
-
-  constructor(private _shoppingCartService: ShoppingCartService) {}
+  constructor(
+    private _shoppingCartService: ShoppingCartService,
+    private _snackBar: MatSnackBar
+  ) {}
 
   emitProduct = (producto: Product) => {
     this._shoppingCartService.addToCart(producto);
@@ -26,5 +27,12 @@ export class ProductsListComponent {
 
   getEmitProductFunction(producto: Product) {
     return () => this.emitProduct(producto);
+  }
+
+  openSnackBar() {
+    this._snackBar.open('Cannonball!!', 'Splash', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
   }
 }

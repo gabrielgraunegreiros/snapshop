@@ -4,7 +4,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { MainHeaderComponent } from './pages/main-header.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { RouterModule } from '@angular/router';
-import { MainButtonModule } from '../shared/main-button.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -17,7 +17,7 @@ import { MainButtonModule } from '../shared/main-button.module';
   imports: [
     CommonModule,
     RouterModule,
-    MainButtonModule
+    SharedModule
   ],
   exports: [
     ShoppingCartComponent,

@@ -10,5 +10,5 @@
     (emitItemToDelete)="deleteItem($event,i)"></sidebar-sidebar-item>
   <div class="total">Total: S/.{{getTotalPrice().toFixed(2)}}</div>
   <hr *ngIf="itemList.length != 0">
-  <shared-main-button [texto]="'PAGAR'" class="pay"></shared-main-button>
+  <shared-main-button *ngIf="itemList.length > 0" [texto]="'PAGAR'" class="pay"></shared-main-button>
 </div>
