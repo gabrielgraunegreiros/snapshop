@@ -2,7 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
 
-The API REST used was implemented by creating a database on Firebase Realtime Database and setting the rules to read products by id.
+## Database
+
+The API REST used was implemented by creating a database on Firebase Realtime Database and setting the rules to read it and to get products by id.
 
 ## Install dependencies
 Run `npm install`.
