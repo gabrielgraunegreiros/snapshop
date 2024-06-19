@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { Product } from '../../products/interfaces/product.interface';
+import { CategoriesService } from '../../products/services/categories.service';
 
 @Component({
   selector: 'header-main-header',

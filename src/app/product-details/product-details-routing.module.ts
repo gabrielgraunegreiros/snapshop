@@ -3,10 +3,10 @@ import { DetailsHomeComponent } from './pages/details-home.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-    {
-        path: 'by/:nombre',
-        component: DetailsHomeComponent
-    }
+  {
+    path: 'by/:nombre',
+    component: DetailsHomeComponent
+  }
 ]
 
 @NgModule({

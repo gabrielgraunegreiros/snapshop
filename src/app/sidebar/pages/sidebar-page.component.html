@@ -7,7 +7,8 @@
   <sidebar-sidebar-item
     *ngFor="let item of itemList; index as i"
     [item]="item"
-    (emitItemToDelete)="deleteItem($event,i)"></sidebar-sidebar-item>
+    (emitItemToDelete)="deleteItem($event,i)"
+    (closeClicked)="closeSidebar()"></sidebar-sidebar-item>
   <div class="total">Total: S/.{{getTotalPrice().toFixed(2)}}</div>
   <hr *ngIf="itemList.length != 0">
   <shared-main-button *ngIf="itemList.length > 0" [texto]="'PAGAR'" class="pay"></shared-main-button>

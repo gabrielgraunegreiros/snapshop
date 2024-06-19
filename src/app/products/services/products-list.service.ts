@@ -32,6 +32,7 @@ export class ProductsListService {
         break;
       default:
         category = 'Tecnología';
+        break;
     }
     return this.productsList.filter(product => product.categoria === category);
   }

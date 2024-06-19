@@ -1,5 +1,5 @@
 <div class="item-container">
-  <div class="item-container-first-row" [routerLink]="['/product-details/by', item?.id]">
+  <div class="item-container-first-row" [routerLink]="['/product-details/by', item?.id]" (click)="closeSidebar()">
     <img class="product-image" [src]="item?.imagen" alt="product-image">
     <div class="item-info-container">
       <p class="item-name">{{item?.nombre}}</p>

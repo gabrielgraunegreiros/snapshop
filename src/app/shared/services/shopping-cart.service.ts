@@ -13,11 +13,14 @@ export class ShoppingCartService {
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  constructor (private _snackBar: MatSnackBar) {}
+  constructor (private _snackBar: MatSnackBar) {
+    this.loadFromLocalStorage();
+  }
 
   addToCart(product: Product) {
     const currentItems = this.cartItemsSubject.value;
     this.cartItemsSubject.next([...currentItems, product]);
+    this.saveToLocalStorage([...currentItems, product]);
     this.openSnackBar('Producto agregado al carrito');
   }
 
@@ -25,6 +28,19 @@ export class ShoppingCartService {
     const currentItems = this.cartItemsSubject.value;
     const updatedItems = currentItems.filter((_, index) => index !== indexOfProduct);
     this.cartItemsSubject.next(updatedItems);
+    this.saveToLocalStorage(updatedItems);
+    this.openSnackBar('Producto eliminado del carrito');
+  }
+
+  private saveToLocalStorage(cartItems: Product[]) {
+    localStorage.setItem('shopping-cart', JSON.stringify(cartItems));
+    console.log(JSON.parse(localStorage.getItem('shopping-cart')!));
+  }
+
+  private loadFromLocalStorage() {
+    if (!localStorage.getItem('shopping-cart')) return;
+    this.cartItemsSubject.next(JSON.parse(localStorage.getItem('shopping-cart')!));
+    console.log(JSON.parse(localStorage.getItem('shopping-cart')!));
   }
 
   openSnackBar(message: string) {

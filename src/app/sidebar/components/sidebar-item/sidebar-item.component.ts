@@ -19,6 +19,13 @@ export class SidebarItemComponent {
   // };
 
   @Output()
+  public closeClicked: EventEmitter<boolean> = new EventEmitter();
+
+  closeSidebar(): void {
+    this.closeClicked.emit(true);
+  }
+
+  @Output()
   public emitItemToDelete: EventEmitter<boolean> = new EventEmitter();
 
   onDeleteClicked(): void {

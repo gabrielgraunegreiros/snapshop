@@ -13,6 +13,7 @@ import { ShoppinCartService } from '../../header/services/shoppin-cart.service';
 export class HomePageComponent {
   public productsFiltered: Product[] = [];
   public categoriesList: Category[] = [];
+  public isLoading: boolean = false;
   constructor(
     private _categoriesService: CategoriesService,
     private _productsListService: ProductsListService,
@@ -20,13 +21,26 @@ export class HomePageComponent {
   ) {}
 
   ngOnInit() {
+    this.isLoading = true;
+    this.toggleBodyScroll(true);
     this._categoriesService.getCategories().subscribe( categories => {
+      this._categoriesService.onCategoryChanged(0);
       this.categoriesList = categories;
     });
     this._productsListService.getProducts().subscribe( products => {
       this.productsFiltered = products;
       this.productsFiltered = this._productsListService.getProductsByCategory(0);
+      this.isLoading = false;
+      this.toggleBodyScroll(false);
     });
+  }
+
+  toggleBodyScroll(isVisible: boolean) {
+    if (isVisible) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
   }
 
   get categoryCurrentListing(): number {

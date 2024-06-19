@@ -1,4 +1,5 @@
-<div class="main-page">
+<shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
+<div class="main-page" *ngIf="!isLoading">
     <img class="product-image" [src]="productoADetallar?.imagen" alt="product-image">
     <section class="product-info-section">
         <div class="product-info">
