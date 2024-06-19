@@ -1,0 +1,22 @@
+<mat-dialog-content class="shopping-cart-list">
+    <div class="close-div">
+      <div class="div-title">Carrito de compras</div>
+      <img class="close-icon" src="assets/icons/close_icon.svg" alt="close" mat-dialog-close>
+    </div>
+    <div class="item-container" *ngFor="let item of itemList; let index = index">
+        <div class="item-container-first-row" [routerLink]="['/product-details/by', item?.id]" mat-dialog-close>
+          <img class="product-image" [src]="item?.imagen" alt="product-image">
+          <div class="item-info-container">
+            <p class="item-name">{{item?.nombre}}</p>
+            <div class="item-price">Precio: <span class="price-number">S/. {{item?.precio?.toFixed(2)}}</span></div>
+            <div class="item-category">Categoría: <span class="category-text">{{item?.categoria}}</span></div>
+          </div>
+        </div>
+        <img class="delete-icon" src="assets/icons/delete_icon.svg" alt="delete" (click)="deleteItem(index)">
+        <hr class="divider">
+      </div>
+    <div class="default-div" *ngIf="itemList.length == 0">Aún no has agregado productos a tu carrito</div>
+    <div class="total">Total: S/.{{getTotalPrice().toFixed(2)}}</div>
+    <hr *ngIf="itemList.length != 0">
+    <shared-main-button *ngIf="itemList.length > 0" [texto]="'PAGAR'" class="pay"></shared-main-button>
+</mat-dialog-content>

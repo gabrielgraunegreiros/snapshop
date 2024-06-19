@@ -17,7 +17,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [
     ShoppingCartComponent,

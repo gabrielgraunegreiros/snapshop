@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
-import { Product } from '../../products/interfaces/product.interface';
-import { CategoriesService } from '../../products/services/categories.service';
+import { Component, inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PopupComponent } from '../../shared/popup/popup.component';
 
 @Component({
   selector: 'header-main-header',
@@ -8,10 +8,13 @@ import { CategoriesService } from '../../products/services/categories.service';
   styleUrl: './main-header.component.css'
 })
 export class MainHeaderComponent {
-  @Output()
-  public onCartClicked: EventEmitter<boolean> = new EventEmitter();
+  readonly dialog = inject(MatDialog);
 
-  onCartClick() {
-    this.onCartClicked.emit(true);
+  openDialog() {
+    this.dialog.open(PopupComponent, {
+      width: '50%',
+      height: 'auto',
+      maxHeight: '70%'
+    });
   }
 }

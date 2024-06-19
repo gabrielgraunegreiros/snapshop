@@ -4,7 +4,6 @@ import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http"
 
 import { HeaderModule } from './header/header.module';
 import { ProductsModule } from './products/products.module';
-import { SidebarModule } from './sidebar/sidebar.module';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,7 +21,6 @@ import { provideAnimations } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HeaderModule,
     ProductsModule,
-    SidebarModule,
     ProductDetailsModule,
     SharedModule,
     MatSnackBarModule

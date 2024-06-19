@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { MainButtonComponent } from './main-button/main-button.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { PopupComponent } from './popup/popup.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -10,14 +13,18 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
   declarations: [
     MainButtonComponent,
     LoadingSpinnerComponent,
+    PopupComponent,
   ],
   imports: [
     CommonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    RouterModule
   ],
   exports: [
     MainButtonComponent,
     LoadingSpinnerComponent,
+    PopupComponent
   ]
 })
 export class SharedModule { }

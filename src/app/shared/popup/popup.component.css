@@ -1,0 +1,161 @@
+.shopping-cart-list {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.shopping-cart-list :focus {
+    outline: none;
+}
+  
+.close-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+  
+.div-title {
+    margin: 0;
+    font-size: 1.1rem;
+}
+  
+.close-icon {
+    cursor: pointer;
+}
+  
+.default-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+}
+  
+.total {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+  
+.pay {
+    padding-bottom: 1rem;
+}
+
+.item-container {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+  
+.item-container-first-row {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: center;
+    cursor: pointer;
+}
+  
+.product-image {
+    height: 100px;
+    width: 100px;
+    border: 2px solid #747474a6;
+    border-radius: 1rem;
+    object-fit: contain;
+}
+  
+.item-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 1rem;
+}
+  
+.item-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+  
+.item-price {
+    margin-top: -1rem;
+    font-size: 1rem;
+    margin-bottom: .5rem;
+}
+  
+.item-category {
+    font-size: 12px;
+    color: cornflowerblue;
+    margin-bottom: 0;
+}
+  
+.delete-icon {
+    margin-right: 1rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.divider {
+    display: none;
+    width: 98%;
+}
+  
+@media (max-width: 768px) {
+    .item-container {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .item-container-first-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product-image {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 1rem;
+    }
+
+    .item-name {
+        text-align: justify;
+        margin-bottom: 1.5rem;
+    }
+      
+    .item-price {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: .5rem;
+    }
+
+    .price-number {
+        font-weight: 600;
+    }
+      
+    .item-category {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+    }
+      
+    .delete-icon {
+        margin-right: 0;
+    }
+
+    .divider {
+        display: inline;
+    }
+}
