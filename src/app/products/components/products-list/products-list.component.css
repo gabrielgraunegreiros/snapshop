@@ -68,7 +68,7 @@
 
 @media (max-width: 768px) {
   .products-container {
-    grid-template-columns: 1fr; /* Una columna para pantallas pequeñas */
+    grid-template-columns: 1fr;
   }
 
   .product-image {

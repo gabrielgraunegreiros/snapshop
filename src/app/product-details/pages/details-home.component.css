@@ -74,3 +74,27 @@
   font-size: 18px;
   font-weight: 500;
 }
+
+
+@media (max-width: 1300px) {
+  .product-image {
+    object-fit: contain
+  }
+}
+
+@media (max-width: 768px) {
+  .main-page {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-image {
+    width: 100%;
+    object-fit: contain
+  }
+
+  .product-info-section {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}
